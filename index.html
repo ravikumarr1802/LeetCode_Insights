@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DSA Problem Viewer</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>DSA Problems by Company</h1>
+    <label for="companySelect">Select Company:</label>
+    <select id="companySelect">
+      <option value="">-- Choose Company --</option>
+    </select>
+
+    <div class="controls">
+      <div class="pagination" id="pagination">
+        <button id="prevBtn" onclick="changePage(-1)">Previous</button>
+        <div id="pageNumbers"></div>
+        <button id="nextBtn" onclick="changePage(1)">Next</button>
+      </div>
+    </div>
+
+    <table id="dataTable">
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th class="sortable" onclick="sortTable(1)">Difficulty</th>
+          <th class="sortable" onclick="sortTable(2)">Title</th>
+          <th class="sortable" onclick="sortTable(3)">Frequency</th>
+          <th class="sortable" onclick="sortTable(4)">Acceptance Rate</th>
+          <th>Link</th>
+          <th>Topics</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <div class="table-footer">
+      <span id="rowCount" class="hidden"></span>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
