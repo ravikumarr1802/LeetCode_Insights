@@ -3,24 +3,40 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DSA Problem Viewer</title>
+    <title>DSA Problemset - LeetCode Style</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>DSA Problems by Company</h1>
-    <label for="companySelect">Select Company:</label>
-    <select id="companySelect">
-      <option value="">-- Choose Company --</option>
-    </select>
+    <h1>DSA Problemset</h1>
 
-    <div class="controls">
-      <div class="pagination" id="pagination">
-        <button id="prevBtn" onclick="changePage(-1)">Previous</button>
-        <div id="pageNumbers"></div>
-        <button id="nextBtn" onclick="changePage(1)">Next</button>
-      </div>
+    <!-- Filters Row -->
+    <div class="filters">
+      <label for="companySelect">Company:</label>
+      <select id="companySelect">
+        <option value="">-- Choose Company --</option>
+      </select>
+
+      <label for="difficultyFilter">Difficulty:</label>
+      <select id="difficultyFilter">
+        <option value="">All</option>
+        <option value="EASY">Easy</option>
+        <option value="MEDIUM">Medium</option>
+        <option value="HARD">Hard</option>
+      </select>
+
+      <label for="topicFilter">Topics:</label>
+      <select id="topicFilter" multiple>
+        <!-- Filled dynamically -->
+      </select>
+
+      <input
+        type="text"
+        id="searchBar"
+        placeholder="🔍 Search problem by title..."
+      />
     </div>
 
+    <!-- Table -->
     <table id="dataTable">
       <thead>
         <tr>
@@ -28,7 +44,7 @@
           <th class="sortable" onclick="sortTable(1)">Difficulty</th>
           <th class="sortable" onclick="sortTable(2)">Title</th>
           <th class="sortable" onclick="sortTable(3)">Frequency</th>
-          <th class="sortable" onclick="sortTable(4)">Acceptance Rate</th>
+          <th class="sortable" onclick="sortTable(4)">Acceptance</th>
           <th>Link</th>
           <th>Topics</th>
         </tr>
@@ -36,36 +52,26 @@
       <tbody></tbody>
     </table>
 
+    <!-- Pagination + Row Count -->
+    <div class="controls">
+      <div class="pagination" id="pagination">
+        <button id="prevBtn" onclick="changePage(-1)">Previous</button>
+        <div id="pageNumbers"></div>
+        <button id="nextBtn" onclick="changePage(1)">Next</button>
+      </div>
+    </div>
     <div class="table-footer">
       <span id="rowCount" class="hidden"></span>
     </div>
-    <div style="text-align: center; margin-top: 40px;">
+
+    <footer>
       <p>©2025 Made by Ravi Kumar</p>
-      <div style="margin-top: 10px;">
-        <a
-          href="https://github.com/ravikumarr1802"
-          target="_blank"
-          style="margin-right: 15px"
-        >
-          <img
-            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
-            alt="GitHub"
-            width="30"
-          />
-        </a>
-        <a href="https://www.linkedin.com/in/ravikumar-rangu/" target="_blank">
-          <img
-            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
-            alt="LinkedIn"
-            width="30"
-          />
-        </a>
-      </div>
-    </div>
+      <a href="https://github.com/ravikumarr1802" target="_blank">GitHub</a> |
+      <a href="https://www.linkedin.com/in/ravikumar-rangu/" target="_blank"
+        >LinkedIn</a
+      >
+    </footer>
+
     <script src="script.js"></script>
   </body>
 </html>
-
-
-
-
